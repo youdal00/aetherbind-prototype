@@ -209,10 +209,13 @@ export function Game({mode,onBack}:{mode:GameMode;onBack:()=>void}) {
       setEarlyFreeMoveUsed((used)=>({...used,[currentPlayer]:true}));setFreeMoveMode(false);setSelectedUnitId(null)
       console.log(`${selectedUnit.id} used EARLY free move`);return
     }
-    setActiveUnitId(selectedUnit.id);setHasMoved(true)
+    const updatedUnits=units.map((unit)=>unit.id===selectedUnit.id?{...unit,x,y}:unit)
+    const movedUnit=updatedUnits.find((unit)=>unit.id===selectedUnit.id)!
+    setActiveUnitId(movedUnit.id);setSelectedUnitId(movedUnit.id);setHasMoved(true)
     if(isMidLeapDestination(selectedUnit,units,{x,y}))console.log(`${selectedUnit.id} used MID leap`)
-    setUnits((current)=>current.map((unit)=>unit.id===selectedUnit.id?{...unit,x,y}:unit))
+    setUnits(updatedUnits)
     console.log(`Moved ${selectedUnit.id} from (${selectedUnit.x},${selectedUnit.y}) to (${x},${y})`)
+    if(movedUnit.type==='ARCHER')console.log('Archer targets after move:',getAttackableTargets(movedUnit,updatedUnits).map((target)=>target.id))
   }
 
   useEffect(()=>{
