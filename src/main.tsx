@@ -1,0 +1,15 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App'
+import './styles.css'
+import './combat.css'
+import './turn.css'
+import './ether.css'
+import './core.css'
+import './awakening.css'
+import './ai.css'
+import './lifecycle.css'
+import './rules.css'
+import './polish.css'
+
+createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>)

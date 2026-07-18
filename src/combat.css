@@ -1,0 +1,50 @@
+.unit-hp {
+  margin-top: -0.15rem;
+  font: 600 clamp(0.45rem, 1.1vw, 0.65rem) 'Noto Sans KR', sans-serif;
+  color: #eaf9f7;
+  text-shadow: 0 1px 3px #000;
+}
+
+.cell.attackable {
+  border-color: #ff596d;
+  background: linear-gradient(#f13c552e, #f13c552e), #101a25;
+  box-shadow: inset 0 0 18px #ff405d88;
+  cursor: crosshair;
+}
+
+.cell.attackable .unit {
+  border: 3px solid #ff7181;
+  box-shadow: inset 0 0 0 2px #ffb0b055, 0 0 24px #ff3b58;
+}
+
+.cell.attackable:hover {
+  background: linear-gradient(#ff506755, #ff506755), #172936;
+  box-shadow: inset 0 0 24px #ff5067aa;
+}
+
+.result-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  background: #02050bd9;
+  backdrop-filter: blur(8px);
+}
+
+.result-panel {
+  width: min(440px, 88vw);
+  padding: 3rem;
+  text-align: center;
+  border: 1px solid #63dfcc;
+  background: radial-gradient(circle at 50% 0, #203d48, #0c1420 65%);
+  box-shadow: 0 0 70px #42d8c855;
+}
+
+.result-panel h2 {
+  margin: 0.4rem 0;
+  font: 700 2.5rem Cinzel, serif;
+}
+
+.result-panel p:not(.eyebrow) { color: #9eb2ba; }
+.result-panel button { margin-top: 1.4rem; }
